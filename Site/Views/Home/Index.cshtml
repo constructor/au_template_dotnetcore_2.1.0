@@ -1,0 +1,26 @@
+﻿@{
+  ViewData["Title"] = "Home Page";
+  Layout = "~/Views/Shared/_Layout_App.cshtml";
+}
+
+<div aurelia-app="main">Loading...</div>
+
+@section scripts {
+  <environment names="Development">
+    <script type="text/javascript" src="~/dist/vendor.bundle.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/dist/app.bundle.js" asp-append-version="true"></script>
+  </environment>
+  <environment names="Production">
+    <script type="text/javascript" asp-src-include="~/dist/common.*.bundle.js" asp-append-version="true"></script>
+  </environment>
+  <environment names="Staging, Production">
+    <script type="text/javascript" asp-src-include="~/dist/vendor.*.bundle.js" asp-append-version="true"></script>
+    <script type="text/javascript" asp-src-include="~/dist/app.*.bundle.js" asp-append-version="true"></script>
+  </environment>
+}
+
+@section css {
+  <environment names="Production">
+    <link asp-href-include="~/dist/*.css" rel="stylesheet" asp-append-version="true"/>
+  </environment>
+}
